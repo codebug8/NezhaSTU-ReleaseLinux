@@ -2,9 +2,6 @@
 
 set -eou pipefail
 
-read -p "Type in WLAN SSID: " WLAN_SSID
-read -s -p "Type in WLAN secret key: " WLAN_SECRET
-echo ""
 
 keyring_option="--keyring /usr/share/keyrings/debian-ports-archive-keyring.gpg"
 if [ $# -eq 1 ]; then
@@ -42,8 +39,8 @@ sudo rm -f /tmp/wlan0_contents
 cat > /tmp/wlan0_contents << EOF
 allow-hotplug wlan0
 iface wlan0 inet dhcp
-	wpa-ssid ${WLAN_SSID}
-	wpa-psk ${WLAN_SECRET}
+	wpa-ssid 100ask
+	wpa-psk 100ask
 EOF
 sudo cp /tmp/wlan0_contents rootfs/etc/network/interfaces.d/
 sudo rm /tmp/wlan0_contents
