@@ -2,7 +2,6 @@
 
 set -eou pipefail
 
-
 keyring_option="--keyring /usr/share/keyrings/debian-ports-archive-keyring.gpg"
 if [ $# -eq 1 ]; then
 	if [ $1 = "--no-check-gpg" ]; then
@@ -10,7 +9,7 @@ if [ $# -eq 1 ]; then
 	fi
 fi
 
-if sudo debootstrap --arch=riscv64  --components main,contrib,non-free --include=pciutils,autoconf,automake,autotools-dev,curl,python3,libmpc-dev,libmpfr-dev,libgmp-dev,gawk,build-essential,bison,flex,libtool,patchutils,bc,zlib1g-dev,wpasupplicant,htop,net-tools,wireless-tools,openssh-client,openssh-server,sudo,e2fsprogs,git,man-db,lshw,dbus,wireless-regdb,libsensors5,libssl-dev,python3-distutils,python3-dev,fakeroot,dkms,libblkid-dev,uuid-dev,libudev-dev,libaio-dev,libattr1-dev,libelf-dev,python3-setuptools,libva-glx2,vainfo  --foreign hirsute rootfs http://ports.ubuntu.com/ubuntu-ports
+if sudo debootstrap --arch=riscv64  --components main,contrib,non-free --include=pciutils,autoconf,automake,autotools-dev,curl,python3,libmpc-dev,libmpfr-dev,libgmp-dev,gawk,build-essential,bison,flex,libtool,patchutils,bc,zlib1g-dev,wpasupplicant,htop,net-tools,wireless-tools,openssh-client,openssh-server,sudo,e2fsprogs,git,man-db,lshw,dbus,wireless-regdb,libsensors5,libssl-dev,python3-distutils,python3-dev,fakeroot,dkms,libblkid-dev,uuid-dev,libudev-dev,libaio-dev,libattr1-dev,libelf-dev,python3-setuptools --foreign hirsute rootfs http://ports.ubuntu.com/ubuntu-ports
 
 then
 	echo "Created rootfs"
